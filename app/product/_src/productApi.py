@@ -15,7 +15,7 @@ app = FastAPI()
 
 @app.get("/ping")
 def ping():
-  print(f'Env:{currentEnvironment}-ping api called !!')
+  print(f'Env:{currentEnvironment}-ping product api called !!')
   return {"Hi from product API!"}
 
 @app.get("/list")
