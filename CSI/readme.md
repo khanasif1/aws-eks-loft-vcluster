@@ -2,6 +2,8 @@
 
 ## Create policy
 
+https://www.stacksimplify.com/aws-eks/kubernetes-storage/install-aws-ebs-csi-driver-on-aws-eks-for-persistent-storage/
+
 - Name: Amazon_EBS_CSI_Driver
 - Description: Policy for EC2 Instances to access Elastic Block Store
 - Click on Create Policy

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sale
+  namespace: app-sales
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sale
+  template:
+    metadata:
+      labels:
+        app: sale
+    spec:
+      containers:
+      - name: sale
+        image: khanasif1/sale_api:rc0.1
+        resources:
+          requests:
+            cpu: 200m
+            memory: 512Mi
+          limits:
+            cpu: 500m
+            memory: 1Gi
+        env:
+          - name: current_env
+            value: dev-test
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sale-service
+  namespace: app-sales
+spec:
+  selector:
+    app: sale
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
