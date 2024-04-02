@@ -1,0 +1,13 @@
+# syncer:
+#   extraArgs:
+      # - --tls-san=demo.vcluster-demo.com
+      # - --out-kube-config-server=https://demo.vcluster-demo.com
+    # - --tls-san=3.25.205.126,13.211.66.222
+    # - --tls-san=akaasif.people.aws.dev
+    # - --out-kube-config-server=http://akaasif.people.aws.dev
+    # - --kube-config-context-name=vcluster_prod-vcluster_prod-vcluster_default 
+sync:
+  ingresses:
+    enabled: true 
+#   isolation:
+#     enabled: true

@@ -12,10 +12,13 @@ vcluster --version
 ##  Create your virtual cluster
 
 ```
-vcluster create product-cluster --namespace v-product  --connect=false  --isolate=true
-
-
+vcluster create product-cluster --namespace v-product  --connect=false  --isolate=true -f  vclusterconfig.yaml
 vcluster create sale-cluster --namespace v-sale  --connect=false  --isolate=false
+
+cd <path>/aws-eks-loft-vcluster/vcluster/deployment  
+
+vcluster create product-cluster --namespace v-product  --connect=false  -f vclusterconfig.yaml
+vcluster create sale-cluster --namespace v-sale  --connect=false   -f vclusterconfig.yaml
 ```
 ## Connect
 
@@ -34,9 +37,9 @@ kubectl  --kubeconfig ./kubeconfig.yaml get namespaces
 kubectl  --kubeconfig ./kubeconfig.yaml create namespace app-product
 kubectl  --kubeconfig ./kubeconfig.yaml create namespace app-sales
 
-vcluster connect product-cluster -n v-product --update-current=false 
 
 
+<!-- 
 vcluster create product-cluster --namespace v-product --upgrade  --connect=false  --isolate=true
 
 vcluster pause product-cluster -n v-product
@@ -45,7 +48,8 @@ vcluster resume product-cluster -n v-product
 vcluster create sale-cluster --namespace v-sale --upgrade  --connect=false  --isolate=true
 
 vcluster pause sale-cluster -n v-sale
-vcluster resume sale-cluster -n v-sale
+vcluster resume sale-cluster -n v-sale 
+-->
 
 
 ## Deploy app
@@ -54,8 +58,8 @@ kubectl  --kubeconfig ./kubeconfig.yaml apply -f ../../../vcluster/deployment/ap
 - ssh on container
     kubectl exec --stdin --tty {podname} -- /bin/bash
 
-     k --kubeconfig ./kubeconfig.yaml exec --stdin --tty product-56c4ccf957-cs478 -n app-product -- /bin/bash
-     k --kubeconfig ./kubeconfig.yaml exec --stdin --tty sale-b5b866585-qfwtg -n app-sales -- /bin/bash
+     k --kubeconfig ./kubeconfig.yaml exec --stdin --tty product-7695d46444-pv46n -n app-product -- /bin/bash
+     k --kubeconfig ./kubeconfig.yaml exec --stdin --tty sale-5fd77b9449-btg28 -n app-sales -- /bin/bash
 
 - check api
     curl http://localhost/ping
@@ -84,6 +88,7 @@ kubectl  --kubeconfig ./kubeconfig.yaml apply -f ../../../vcluster/deployment/ap
     Use --isolate to create an isolated environment for the vCluster workloads
 
     vcluster create my-vcluster --isolate
+    vcluster delete my-vcluster -n vcluster-my-vcluster   --delete-namespace
 
 ##  List vCluster
 vcluster list

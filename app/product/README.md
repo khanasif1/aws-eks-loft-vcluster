@@ -24,17 +24,17 @@ http://127.0.0.1:8000/docs
 ## Product 
 ```
 
-docker build -t product_api:rc0.1 .  
+docker build -t product_api:rc0.2 .  
 
-docker run -d -p 8080:80 -e current_env='localDev'  --name productapi product_api:rc0.1
+docker run -d -p 8080:80 -e current_env='localDev'  --name productapi product_api:rc0.2
 
 http://127.0.0.1:8080/docs
 
 docker login
 
-docker tag product_api:rc0.1 khanasif1/product_api:rc0.1
+docker tag product_api:rc0.2 khanasif1/product_api:rc0.2
 
-docker push khanasif1/product_api:rc0.1
+docker push khanasif1/product_api:rc0.2
 
 ```
 

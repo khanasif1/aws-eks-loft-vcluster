@@ -1,0 +1,52 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: vcluster-ingress
+#   namespace: demo-vcluster
+#   annotations:
+#     nginx.ingress.kubernetes.io/rewrite-target: /
+#     # nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+#     # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+#     # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
+# spec:
+#   ingressClassName: nginx # use your ingress class name
+#   rules:
+#   - host: "akaasif.people.aws.dev"
+#     http:
+#       paths:
+#       - backend:
+#           service:
+#             name: demo-vcluster
+#             port:
+#               number: 80
+#         path: /
+#         pathType: ImplementationSpecific
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: demo-vcluster
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "akaasif.people.aws.dev"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: demo-vcluster
+            port:
+              number: 80
+      - pathType: Prefix
+        path: "/ping"
+        backend:
+          service:
+            name: demo-vcluster
+            port:
+              number: 80

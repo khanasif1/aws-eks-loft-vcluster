@@ -1,0 +1,24 @@
+isolation:
+  enabled: true
+
+  podSecurityStandard: baseline
+
+  resourceQuota:
+    enabled: true
+    quota:
+      requests.cpu: 5
+      requests.memory: 10Gi
+      requests.storage: "20Gi"
+      requests.ephemeral-storage: 100Gi
+      limits.memory: 10Gi
+      limits.ephemeral-storage: 100Gi
+      services.nodeports: 10
+      services.loadbalancers: 1
+      count/endpoints: 10
+      count/pods: 5
+      count/services: 10
+      count/secrets: 60
+      count/configmaps: 60
+      count/persistentvolumeclaims: 10
+  networkPolicy:
+    enabled: false

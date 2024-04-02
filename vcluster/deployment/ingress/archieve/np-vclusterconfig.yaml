@@ -1,0 +1,11 @@
+syncer:
+  extraArgs:
+    - --tls-san=3.25.205.126,13.211.66.222
+
+sync:
+  ingresses:
+    enabled: true 
+#   isolation:
+#     enabled: true
+  nodes:
+    enabled: true

@@ -22,15 +22,15 @@ http://127.0.0.1:8000/docs
  
 ```
 
-docker build -t sale_api:rc0.1 .  
+docker build -t sale_api:rc0.2 .  
 
-docker run -d -p 8080:80 -e current_env='localDev'  --name saleapi sale_api:rc0
+docker run -d -p 8080:80 -e current_env='localDev'  --name saleapi sale_api:rc0.2
 
 docker login
 
-docker tag sale_api:rc0.1 khanasif1/sale_api:rc0.1
+docker tag sale_api:rc0.2 khanasif1/sale_api:rc0.2
 
-docker push khanasif1/sale_api:rc0.1       
+docker push khanasif1/sale_api:rc0.2
 
 ```
 
