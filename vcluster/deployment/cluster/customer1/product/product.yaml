@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sale
-  namespace: app-sale
+  name: cust1-product
+  namespace: app-product
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sale
+      app: product
   template:
     metadata:
       labels:
-        app: sale
+        app: product
     spec:
       containers:
-      - name: sale
-        image: khanasif1/sale_api:rc0.2
+      - name: product
+        image: khanasif1/product_api:rc0.2
         resources:
           requests:
             cpu: 200m
@@ -25,18 +25,18 @@ spec:
             memory: 1Gi
         env:
           - name: current_env
-            value: dev-test
+            value: customer1
           - name: current_ver
-            value: rc0.2            
+            value: rc0.2
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sale-service
-  namespace: app-sale
+  name: cust1-product-service
+  namespace: app-product
 spec:
   selector:
-    app: sale
+    app: product
   ports:
     - protocol: TCP
       port: 80
