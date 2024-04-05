@@ -128,12 +128,17 @@ cd <path>/aws-eks-loft-vcluster/vcluster/deployment/policy
  
 - Apply Policy
 
+```
     kubectl  apply -f ../policy/customer1-deny-all-external.yaml  
     kubectl  apply -f ../policy/customer2-deny-all-external.yaml  
+```
 
 - Test Policy
+
+```
     k --kubeconfig ./customer1/kubeconfig.yaml -n app-product exec cust1-product-7899b7cd9f-7m8fs -- curl http://172.16.127.18 cust1-prod-->cust1-sale -- WORKS
     k --kubeconfig ./customer1/kubeconfig.yaml -n app-product exec cust1-product-7899b7cd9f-7m8fs -- curl http://172.16.106.17 cust1-prod-->cust2-prod -- FAILS 
     k --kubeconfig ./customer2/kubeconfig.yaml -n app-product exec cust2-product-785c9f5db4-nf27k -- curl http://172.16.106.15 cust2-prod-->cust1-prod -- FAILS
     k --kubeconfig ./customer2/kubeconfig.yaml -n app-product exec cust2-product-785c9f5db4-nf27k -- curl http://172.16.127.20 cust2-prod-->cust2-sale -- WORKS
 
+```
