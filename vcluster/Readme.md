@@ -113,7 +113,9 @@ k config set-context akaasif-Isengard@vcluster-demo.ap-southeast-2.eksctl.io
 kubectl config use-context akaasif-Isengard@vcluster-demo.ap-southeast-2.eksctl.io
 kubectl config use-context akaasif-Isengard@vcluster-demo-2.us-east-2.eksctl.io
 ```
-
+<p align="center">
+  <img  src="https://github.com/aws-samples/amazon-eks-scaling-with-keda-and-karpenter/blob/main/img/aws_kedakarpenter_arch_small.gif?raw=true">
+</p>
 ##  Network policy
 ```
 cd <path>/aws-eks-loft-vcluster/vcluster/deployment/policy
@@ -131,3 +133,4 @@ cd <path>/aws-eks-loft-vcluster/vcluster/deployment/policy
     k --kubeconfig ./customer1/kubeconfig.yaml -n app-product exec cust1-product-7899b7cd9f-7m8fs -- curl http://172.16.106.17 cust1-prod-->cust2-prod -- FAILS 
     k --kubeconfig ./customer2/kubeconfig.yaml -n app-product exec cust2-product-785c9f5db4-nf27k -- curl http://172.16.106.15 cust2-prod-->cust1-prod -- FAILS
     k --kubeconfig ./customer2/kubeconfig.yaml -n app-product exec cust2-product-785c9f5db4-nf27k -- curl http://172.16.127.20 cust2-prod-->cust2-sale -- WORKS
+
