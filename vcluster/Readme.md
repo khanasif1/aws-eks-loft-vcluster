@@ -117,6 +117,7 @@ kubectl config use-context akaasif-Isengard@vcluster-demo-2.us-east-2.eksctl.io
   <img  src="https://github.com/khanasif1/aws-eks-loft-vcluster/blob/main/architetcure/RefArchitecture.svg">
 </p>
 ##  Network policy
+
 ```
 cd <path>/aws-eks-loft-vcluster/vcluster/deployment/policy
 ```
