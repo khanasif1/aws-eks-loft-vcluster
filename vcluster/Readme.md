@@ -114,7 +114,7 @@ kubectl config use-context akaasif-Isengard@vcluster-demo.ap-southeast-2.eksctl.
 kubectl config use-context akaasif-Isengard@vcluster-demo-2.us-east-2.eksctl.io
 ```
 <p align="center">
-  <img  src="https://github.com/aws-samples/amazon-eks-scaling-with-keda-and-karpenter/blob/main/img/aws_kedakarpenter_arch_small.gif?raw=true">
+  <img  src="https://github.com/khanasif1/aws-eks-loft-vcluster/blob/main/architetcure/RefArchitecture.svg">
 </p>
 ##  Network policy
 ```
