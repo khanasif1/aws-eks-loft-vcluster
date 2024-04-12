@@ -13,7 +13,7 @@
 # #     enabled: true
 
 isolation:
-  enabled: false
+  enabled: true
 
   podSecurityStandard: baseline
 
@@ -36,7 +36,7 @@ isolation:
       count/configmaps: 100
       count/persistentvolumeclaims: 20
 securityContext:
-  runAsNonRoot: false
+  runAsNonRoot: true
 
 
 # sync:
@@ -53,10 +53,10 @@ securityContext:
     enabled: true
     outgoingConnections:
       ipBlock:
-        cidr: 172.16.0.0/12
+        cidr: 0.0.0.0/0
         except:
           - 100.64.0.0/10
           - 127.0.0.0/8
           - 10.0.0.0/8
-          - 0.0.0.0/0
+          - 172.16.0.0/12
           - 192.168.0.0/16

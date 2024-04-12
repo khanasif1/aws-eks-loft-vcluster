@@ -1,5 +1,9 @@
 # aws-eks-loft-vcluster
 
+<p align="center">
+  <img  src="https://github.com/khanasif1/aws-eks-loft-vcluster/blob/main/architetcure/HL_RefArchitecture.svg">
+</p>
+
 
 K8S Cheat
 =========
